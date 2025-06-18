@@ -1,116 +1,99 @@
 /* Estilos Base */
-html {
-  display: table;
+html, body {
   width: 100%;
-  height: 100vmin;
-  table-layout: fixed;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  font-family: 'Shadows Into Light', cursive;
 }
 
-body {
-  display: table-cell;
-  vertical-align: middle;
-  font-family: 'Shadows Into Light', cursive;
-  color: #111;
-  margin: 0;
-  background-color: #f9f9f9;
+/* Container principal */
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
 }
 
 /* Animação de pulsar */
 @keyframes pulsar {
   0% { transform: scale(1); }
-  35% { transform: scale(1.2); }
-  85% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
-/* Container e Checkboxes */
-.container {
-  width: 90vmin;
-  height: 90vmin;
-  position: relative;
-  margin: 5vmin auto;
+.pulsando {
+  animation: pulsar 0.8s infinite;
 }
 
-.container.pulsando {
-  animation: pulsar 0.5s infinite;
-  animation-delay: 0.8s;
-}
-
+/* Estilo dos checkboxes e labels */
 .checkbox-criativo {
   display: none;
 }
 
 .checkbox-criativo + label {
-  width: 30vmin;
-  height: 30vmin;
-  line-height: 30vmin;
-  display: inline-block;
   position: absolute;
-  font-size: 30vmin;
-  text-align: center;
-  transition: all 1s ease;
-  text-shadow: 3vmin 3vmin 10vmin rgba(0, 0, 0, 0.5);
+  font-size: 50px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  color: #333;
 }
 
 .checkbox-criativo + label:hover {
-  color: #c32a2a;
-  cursor: pointer;
+  color: #ff3366;
 }
 
-/* Posições individuais */
+/* Posicionamento das palavras */
 #check1 + label {
-  left: 0;
-  top: 0;
-  border-radius: 50%;
+  top: 20px;
+  left: 30px;
 }
 
 #check2 + label {
-  right: 10vmin;
-  top: 0;
-  border-radius: 50%;
+  top: 20px;
+  right: 30px;
 }
 
 #check3 + label {
-  bottom: 5vmin;
+  bottom: 30px;
   left: 50%;
-  margin: 0 -9vmin;
+  transform: translateX(-50%);
 }
 
 /* Quando selecionado */
 .checkbox-criativo:checked + label {
-  background: #c32a2a;
-  font-size: 0;
-  transition: all 1s ease;
+  color: #ff3366;
+  font-weight: bold;
 }
 
-#check1:checked + label,
-#check2:checked + label {
-  width: 54vmin;
-  height: 54vmin;
-  border-radius: 50%;
-  line-height: 54vmin;
+/* Formando o coração quando todos estão selecionados */
+#check1:checked + label {
+  top: 10px;
+  left: 50px;
+  transform: rotate(-15deg);
 }
 
 #check2:checked + label {
-  right: 0;
+  top: 10px;
+  right: 50px;
+  transform: rotate(15deg);
 }
 
 #check3:checked + label {
-  width: 49.5vmin;
-  height: 49.5vmin;
-  bottom: 17.28vmin;
-  left: 29.16vmin;
-  transform: rotate(45deg);
-  line-height: 4.86vmin;
+  bottom: 50px;
+  font-size: 60px;
 }
 
-/* Texto de instrução */
+/* Instruções */
 .instrucao {
-  display: inline-block;
-  text-align: left;
   position: absolute;
-  bottom: 0vmin;
-  left: 0vmin;
-  margin-bottom: -3vmin;
-  font-size: 6vmin;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
   color: #999;
 }
